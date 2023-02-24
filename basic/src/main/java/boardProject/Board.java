@@ -6,7 +6,6 @@ public class Board {
 	private String date;
 	private String subject;
 	private String contents;
-
 	public Board(int no, String writer, String date, String subject, String contents) {
 		super();
 		this.no = no;
