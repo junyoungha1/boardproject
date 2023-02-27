@@ -1,4 +1,4 @@
-package memberLogin;
+package kr.member.model;
 
 public class User {
 	private String id;

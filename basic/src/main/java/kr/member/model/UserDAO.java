@@ -1,4 +1,4 @@
-package memberLogin;
+package kr.member.model;
 
 import java.util.ArrayList;
 

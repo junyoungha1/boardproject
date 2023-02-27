@@ -1,7 +1,7 @@
-<%@page import="memberLogin.UserDAO"%>
+<%@page import="kr.member.model.UserDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%@ page import="memberLogin.User"%>
+<%@ page import="kr.member.model.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
