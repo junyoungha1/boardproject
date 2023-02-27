@@ -1,4 +1,4 @@
-package boardProject;
+package kr.board.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

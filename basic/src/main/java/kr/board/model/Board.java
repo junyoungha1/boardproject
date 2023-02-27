@@ -1,4 +1,4 @@
-package boardProject;
+package kr.board.model;
 
 public class Board {
 	private int no;

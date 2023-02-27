@@ -1,6 +1,6 @@
-<%@page import="boardProject.Board"%>
+<%@page import="kr.board.model.Board"%>
+<%@page import="kr.board.model.BoardDAO"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="boardProject.BoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -41,7 +41,7 @@
 				<li class="nav-item active"><a class="nav-link"
 					href="00_main.jsp">Home <span class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+				<li class="nav-item"><a class="nav-link" href="http://localhost:8080/basic/05_memberLogin/02_main.jsp">Login</a></li>
 			</ul>
 			<form class="form-inline my-2 my-md-0"></form>
 		</div>
@@ -110,14 +110,16 @@
 							<li class="page-item"><a class="page-link" href="#"
 								aria-label="Previous"> <span aria-hidden="true">«</span> <span
 									class="sr-only preBtn">Previous</span>
+									
 							</a></li>
 							<%
-							for (int i = 1; i <= endPage; i++) {
-							%>
+							for (int i = currentPageNum; i <= currentPageNum+4; i++) {
+							if(i>=1&&i<=endPage){%>
+							
 							<li class="page-item <%if (currentPageNum == i) {%>active<%}%>"><a
 								class="page-link" href="01_boardList.jsp?pageNum=<%=i%>"><%=i%></a></li>
 							<%
-							}
+							}}
 							%>
 							<li class="page-item"><a class="page-link" href="#"
 								aria-label="Next"> <span aria-hidden="true">»</span> <span
@@ -158,19 +160,7 @@
 					$("#wrapper").addClass("toggled");
 				}
 			});
-		});
-		let preBtn = document.querySeletor('.preBtn');
-		let nextBtn = document.querySeletor('.nextBtn');
-		preBtn.addEventListener('click',()=>{
-			<%if (currentPageNum < endPage)
-	currentPageNum++;%>
-		})
-		
-		nextBtn.addEventListener('click',()=>{
-			<%if (currentPageNum > 1)
-	currentPageNum--;%>
-		})
-		
+		});		
 	</script>
 </body>
 </html>
