@@ -27,6 +27,7 @@
 	int onePageBoard = 15;
 	int startPage = (currentPageNum - 1) * onePageBoard;
 	int endPage = cnt % onePageBoard == 0 ? cnt / onePageBoard : cnt / onePageBoard + 1;
+	
 	%>
 	<nav class="navbar navbar-expand navbar-dark bg-primary">
 		<a href="#menu-toggle" id="menu-toggle" class="navbar-brand"><span

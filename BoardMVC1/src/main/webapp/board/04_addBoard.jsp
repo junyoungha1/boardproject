@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+<%=request.getContextPath() %>
 
 	<nav class="navbar navbar-expand navbar-dark bg-primary">
 		<a href="#menu-toggle" id="menu-toggle" class="navbar-brand"><span
@@ -53,7 +54,7 @@
 		<!-- Page Content -->
 		<div id="page-content-wrapper">
 			<div class="container-fluid">
-				<form method="post" action="04_addBoardPro.jsp">
+				<form method="post" action="<%=request.getContextPath() %>/board.do">
 					<table>
 
 						<tr>
