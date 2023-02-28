@@ -13,46 +13,25 @@ import javax.servlet.http.HttpServletResponse;
 public class JoinAction extends HttpServlet {
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		reqPro(req, resp);
-	}
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		reqPro(req, resp);
-	}
-	
-	protected void reqPro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		String id = request.getParameter("joinId");
 		String pw = request.getParameter("joinPw");
 		String name = request.getParameter("joinName");
 		String gender = request.getParameter("joinGender");
-		
+
 		int check = -1;
-		if(!id.equals("qwer")) {
+		if (!id.equals("qwer")) {
 			check = 1;
 		}
+
+		// jsp 페이지로 request 값 전달 -> forward를 통해서 request 객체 유지 가능
+		String info[] = {id,pw,name,gender};
 		
-		// jsp 페이지로 request 값 전달  -> forward를 통해서 request 객체 유지 가능 
-		request.setAttribute("check", check);
-		
+		request.setAttribute("info", info);
 		RequestDispatcher dis = request.getRequestDispatcher("/08_mvc2login/joinPro.jsp");
 		dis.forward(request, response);
-		
 	}
-	
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

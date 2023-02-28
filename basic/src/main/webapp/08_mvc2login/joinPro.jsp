@@ -4,7 +4,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<c:set var="contextPath" value="${ pageContext.request.contextPath }" />
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,15 +12,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-	request.setCharacterEncoding("utf-8");
-	ArrayList<User> userList = UserDAO.getInstance();
-	UserDAO.addUser(${joinId}, pw, name, gender);
-	%>
+	<h1>${info}</h1>
 
 	<script>
 		alert("회원가입 완료");
-		location.href = "login.jsp";
 	</script>
 </body>
 </html>
