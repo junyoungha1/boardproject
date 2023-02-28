@@ -52,7 +52,7 @@ ArrayList<Board> list = BoardDAO.getInstance().boardList();
 		<!-- Page Content -->
 		<div id="page-content-wrapper">
 			<div class="container-fluid">
-				<h1>Simple Sidebar</h1>
+				<h1>Simple Side</h1>
 				<p>This template has a responsive menu toggling system. The menu
 					will appear collapsed on smaller screens, and will appear
 					non-collapsed on larger screens. When toggled using the button
