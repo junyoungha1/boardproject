@@ -1,3 +1,5 @@
+use testdb;
+
 create table board(
     board_no int primary key auto_increment, 
     writer varchar(20) not null, 
@@ -19,4 +21,5 @@ insert into board(writer,subject,contents,reg_date)
 values('작성자5','제목5','내용5',curdate());
 insert into board(writer,subject,contents,reg_date)
 values('작성자6','제목6','내용6',curdate());
+
 select * from board;

@@ -3,6 +3,9 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	
+<c:set var="ctx" value="${ pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,14 +13,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-	BoardDAO bdao = BoardDAO.getInstance();
-	ArrayList<Board> list = bdao.boardList();
-	bdao.addDummy();
-	%>
 	<script>
 		alert("더미 게시글 추가 완료");
-		location.href="01_boardList.jsp?pageNum=1"
+		location.href = "./01_boardList.jsp?pageNum=1";
 	</script>
 </body>
 </html>

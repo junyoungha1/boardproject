@@ -14,7 +14,6 @@ BoardDAO bdao = BoardDAO.getInstance();
 int no = Integer.parseInt(request.getParameter("no"));
 String subject = request.getParameter("updateSubject");
 String contents = request.getParameter("updateContents");
-bdao.setBoard(subject, contents, no);
 %>
 	<script>
 		alert("게시글 수정 완료");

@@ -155,7 +155,7 @@ public class BoardDAO {
 		return cnt;
 	}
 
-	public int setBoard(String subject, String contents, int board_no) {
+	public int updateBoard(String subject, String contents, int board_no) {
 		String SQL = "update board set subject = ?, contents = ? where board_no = ?";
 		connect();
 		int cnt = -1;

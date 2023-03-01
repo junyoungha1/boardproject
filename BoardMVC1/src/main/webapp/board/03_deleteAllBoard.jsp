@@ -10,11 +10,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-	BoardDAO bdao = BoardDAO.getInstance();
-	ArrayList<Board> list = bdao.boardList();
-	bdao.removeAllBoard();
-	%>
 	<script>
 		alert("모든 게시물이 삭제되었습니다.");
 		location.href = "01_boardList.jsp?pageNum=1"
