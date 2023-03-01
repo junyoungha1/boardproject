@@ -10,7 +10,7 @@
 		<header>
 			<h1 style="color: #007bff;">게시판</h1>
 		</header>
-		<%
+	 	<%-- <%
 		BoardDAO bdao = BoardDAO.getInstance();
 		ArrayList<Board> boardList = bdao.boardList();
 		int cnt = boardList.size();
@@ -18,7 +18,7 @@
 		int onePageBoard = 15;
 		int startPage = (currentPageNum - 1) * onePageBoard;
 		int endPage = cnt % onePageBoard == 0 ? cnt / onePageBoard : cnt / onePageBoard + 1;
-		%>
+		%>  --%>
 		<div class="main">
 			<table>
 				<tr>

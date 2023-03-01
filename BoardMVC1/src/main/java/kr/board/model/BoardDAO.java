@@ -20,7 +20,7 @@ public class BoardDAO {
 	private ResultSet rs;
 
 	private void connect() {
-		String URL = "jdbc:mysql://localhost:3306/testdb?charaterEncoding=UTF-8&serverTimezone=UTC";
+		String URL = "jdbc:mysql://localhost:3306/testdb?charaterEncoding=UTF-8&serverTimezone=UTC&useSSL=false";
 		String user = "root";
 		String password = "root";
 
