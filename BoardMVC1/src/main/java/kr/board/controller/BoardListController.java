@@ -20,10 +20,10 @@ public class BoardListController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-//		int pageNum = Integer.parseInt(request.getParameter("pageNum"));
+		int pageNum = Integer.parseInt(request.getParameter("pageNum"));
 		ArrayList<Board> list = BoardDAO.getInstance().boardList();
 		request.setAttribute("list", list);
-		RequestDispatcher rd=request.getRequestDispatcher("board/01_boardList.jsp?pageNum=1");
+		RequestDispatcher rd=request.getRequestDispatcher("board/01_boardList.jsp?pageNum="+pageNum);
 		rd.forward(request, response);
 	}
 

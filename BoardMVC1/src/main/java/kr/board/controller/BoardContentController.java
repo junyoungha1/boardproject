@@ -21,13 +21,13 @@ public class BoardContentController extends HttpServlet{
 		String ctx=request.getContextPath();
 		  int no =-1;
 		  if(request.getParameter("no")==null){
-			  response.sendRedirect(ctx+"/boardList.do");
+			  response.sendRedirect(ctx+"/boardList.do?pageNum=1");
 		  }else{
 			  no = Integer.parseInt(request.getParameter("no"));
 		  }
 		  Board b = BoardDAO.getInstance().getBoard(no);
 		request.setAttribute("b", b);
-		RequestDispatcher rd=request.getRequestDispatcher("board/boardContent.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("board/boardContent.jsp?no="+no);
 		rd.forward(request, response); //-----------------------------------▲
 	}
 

@@ -10,7 +10,7 @@
 		<header>
 			<h1 style="color: #007bff;">게시판</h1>
 		</header>
-	 	<%-- <%
+	 	<%
 		BoardDAO bdao = BoardDAO.getInstance();
 		ArrayList<Board> boardList = bdao.boardList();
 		int cnt = boardList.size();
@@ -18,7 +18,7 @@
 		int onePageBoard = 15;
 		int startPage = (currentPageNum - 1) * onePageBoard;
 		int endPage = cnt % onePageBoard == 0 ? cnt / onePageBoard : cnt / onePageBoard + 1;
-		%>  --%>
+		%>
 		<div class="main">
 			<table>
 				<tr>
@@ -37,7 +37,7 @@
 				</c:forEach>
 			</table>
 		</div>
-		<%-- <footer>
+		<footer>
 			<nav aria-label="Page navigation example"></nav>
 			<nav aria-label="Page navigation example">
 				<ul class="pagination"
@@ -71,7 +71,7 @@
 					</ul>
 				</form>
 			</nav>
-		</footer> --%>
+		</footer>
 	</div>
 </div>
 <!-- /#page-content-wrapper -->
@@ -80,22 +80,21 @@
 <!-- Bootstrap core JavaScript -->
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
-<!-- Menu Toggle Script -->
 <script>
-	$(function() {
-		$("#menu-toggle").click(function(e) {
-			e.preventDefault();
-			$("#wrapper").toggleClass("toggled");
-		});
+		$(function() {
+			$("#menu-toggle").click(function(e) {
+				e.preventDefault();
+				$("#wrapper").toggleClass("toggled");
+			});
 
-		$(window).resize(function(e) {
-			if ($(window).width() <= 768) {
-				$("#wrapper").removeClass("toggled");
-			} else {
-				$("#wrapper").addClass("toggled");
-			}
+			$(window).resize(function(e) {
+				if ($(window).width() <= 768) {
+					$("#wrapper").removeClass("toggled");
+				} else {
+					$("#wrapper").addClass("toggled");
+				}
+			});
 		});
-	});
-</script>
+	</script>
 </body>
 </html>

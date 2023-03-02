@@ -34,7 +34,7 @@ public class BoardInsertController extends HttpServlet {
 		String ctx = request.getContextPath();
 		int cnt = BoardDAO.getInstance().addBoard(b);
 		if (cnt > 0) {
-			response.sendRedirect(ctx + "/boardList.do");
+			response.sendRedirect(ctx + "/boardList.do?pageNum=1");
 		} else {
 			throw new ServletException("not insert");
 		}
