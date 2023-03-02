@@ -60,7 +60,7 @@
 		
 		let cancel = document.querySelector(".cancel");
 		cancel.addEventListener('click', ()=>{
-		    location.href = '01_boardList.jsp?pageNum=1';
+		    location.href = 'boardList.jsp?pageNum=1';
 		})
 		
 	</script>

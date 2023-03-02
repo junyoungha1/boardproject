@@ -120,6 +120,8 @@ public class BoardDAO {
 				String date = rs.getString("reg_date").toString();
 				String subject = rs.getString("subject");
 				String contents = rs.getString("contents");
+				int board_no = rs.getInt("board_no");
+				b.setNo(board_no);
 				b.setWriter(writer);
 				b.setDate(date);
 				b.setSubject(subject);

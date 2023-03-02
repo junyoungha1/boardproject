@@ -12,23 +12,29 @@ import javax.servlet.http.HttpServletResponse;
 import kr.board.model.Board;
 import kr.board.model.BoardDAO;
 
-
 @WebServlet("/boardContent.do")
-public class BoardContentController extends HttpServlet{
+public class BoardContentController extends HttpServlet {
 
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String ctx=request.getContextPath();
-		  int no =-1;
-		  if(request.getParameter("no")==null){
-			  response.sendRedirect(ctx+"/boardList.do?pageNum=1");
-		  }else{
-			  no = Integer.parseInt(request.getParameter("no"));
-		  }
-		  Board b = BoardDAO.getInstance().getBoard(no);
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String ctx = request.getContextPath();
+		String conPath = request.getParameter("conPath");
+		int no = -1;
+		if (request.getParameter("no") == null) {
+			response.sendRedirect(ctx + "/boardList.do?pageNum=1");
+		} else {
+			no = Integer.parseInt(request.getParameter("no"));
+		}
+		Board b = BoardDAO.getInstance().getBoard(no);
 		request.setAttribute("b", b);
-		RequestDispatcher rd=request.getRequestDispatcher("board/boardContent.jsp?no="+no);
-		rd.forward(request, response); //-----------------------------------▲
+		if (conPath.equals("view")) {
+			RequestDispatcher rd = request.getRequestDispatcher("board/boardContent.jsp?no=" + no);
+			rd.forward(request, response); 
+		}else {
+			RequestDispatcher rd = request.getRequestDispatcher("board/updateBoard.jsp?no=" + no);
+			rd.forward(request, response); 
+		}
 	}
 
 }

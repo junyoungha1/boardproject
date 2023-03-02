@@ -30,7 +30,7 @@
 				<c:forEach var="b" items="${list}">
 					<tr>
 						<td>${b.no}</td>
-						<td><a href="${ctx}/boardContent.do?no=${b.no}">${b.subject}</a></td>
+						<td><a href="${ctx}/boardContent.do?no=${b.no}&conPath=view">${b.subject}</a></td>
 						<td>${b.writer}</td>
 						<td>${b.date}</td>
 					</tr>
@@ -52,7 +52,7 @@
 							%>
 
 					<li class="page-item <%if (currentPageNum == i) {%>active<%}%>"><a
-						class="page-link" href="01_boardList.jsp?pageNum=<%=i%>"><%=i%></a></li>
+						class="page-link" href="${ctx}/boardList.do?pageNum=<%=i%>"><%=i%></a></li>
 					<%
 							}
 							%>
@@ -63,7 +63,7 @@
 				</ul>
 			</nav>
 			<nav aria-label="Page navigation example">
-				<form action="04_addBoard.jsp">
+				<form action="addBoard.jsp">
 					<ul class="pagination"
 						style="width: 100%; padding-right: 40px; display: flex; justify-content: flex-end; align-items: center;">
 						<li class="page-item"><input type="submit" class="page-link"

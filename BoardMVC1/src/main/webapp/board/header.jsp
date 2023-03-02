@@ -18,7 +18,7 @@
 <script
 	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<link rel="stylesheet" href="${ctx}/board/style.css">
+<link rel="stylesheet" href="${ctx}/css/style.css">
 </head>
 <body>
 	<nav class="navbar navbar-expand navbar-dark bg-primary">
@@ -32,7 +32,7 @@
 		<div class="collapse navbar-collapse" id="navbarsExample02">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link"
-					href="${ctx}/board/00_main.jsp">Home <span class="sr-only">(current)</span>
+					href="${ctx}/board/main.jsp">Home <span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="../member/index.jsp">Login</a></li>

@@ -6,11 +6,11 @@
 <%@ include file="header.jsp"%>
 <div id="page-content-wrapper">
 	<div class="container-fluid">
-		<form method="post" action="${ctx}/boardUpdate.do">
+		<form method="post" action="${ctx}/boardUpdate.do?no=${b.no}">
 			<table border="1">
 				<tr>
 					<td>번호</td>
-					<td colspan="3" style="text-align: left;">${no}</td>
+					<td colspan="3" style="text-align: left;">${b.no}</td>
 				</tr>
 				<tr>
 					<td>작성자</td>
@@ -64,7 +64,7 @@
 			});
 			let cancel = document.querySelector(".cancel");
 			cancel.addEventListener('click', ()=>{
-			    location.href = '07_showBoard.jsp?no=${no}';
+			    location.href = '${ctx}/boardContent.do?no=${b.no}&conPath=view';
 			})
 		</script>
 </body>

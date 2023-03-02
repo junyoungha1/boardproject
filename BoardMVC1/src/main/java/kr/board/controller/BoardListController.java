@@ -23,7 +23,7 @@ public class BoardListController extends HttpServlet {
 		int pageNum = Integer.parseInt(request.getParameter("pageNum"));
 		ArrayList<Board> list = BoardDAO.getInstance().boardList();
 		request.setAttribute("list", list);
-		RequestDispatcher rd=request.getRequestDispatcher("board/01_boardList.jsp?pageNum="+pageNum);
+		RequestDispatcher rd=request.getRequestDispatcher("board/boardList.jsp?pageNum="+pageNum);
 		rd.forward(request, response);
 	}
 

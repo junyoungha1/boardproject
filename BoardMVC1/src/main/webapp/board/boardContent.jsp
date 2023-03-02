@@ -6,11 +6,11 @@
 <%@ include file= "header.jsp" %>
 		<div id="page-content-wrapper">
 			<div class="container-fluid">
-				<form method="post" action="05_updateBoard.jsp?no=${no }">
+				<form method="post" action="${ctx}/boardContent.do?no=${b.no}&conPath=update">
 					<table border="1">
 						<tr>
 							<td>번호</td>
-							<td colspan="3" style="text-align: left;">${no }</td>
+							<td colspan="3" style="text-align: left;">${b.no }</td>
 						</tr>
 						<tr>
 							<td>작성자</td>
@@ -41,7 +41,6 @@
 								class="page-link cancel" value="취소" /></li>
 						</ul>
 					</nav>
-					<td><input type="hidden" name="no" value=${no } /></td>
 				</form>
 			</div>
 		</div>
@@ -66,11 +65,11 @@
 			});
 			let cancel = document.querySelector(".cancel");
 			cancel.addEventListener('click', ()=>{
-			    location.href = '01_boardList.jsp?pageNum=1';
+			    location.href = '${ctx}/boardList.do?pageNum=1';
 			})
 			let delBoard= document.querySelector(".delete");
 			delBoard.addEventListener('click', ()=>{
-			    location.href = '${ctx}/boardDelete.do';
+			    location.href = '${ctx}/boardDelete.do?no=${b.no}';
 			})
 			
 		</script>
