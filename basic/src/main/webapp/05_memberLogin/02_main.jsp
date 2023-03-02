@@ -1,5 +1,5 @@
-<%@page import="kr.member.model.UserDAO"%>
-<%@page import="kr.member.model.User"%>
+<%@page import="kr.member.model.MemberDAO"%>
+<%@page import="kr.member.model.Member"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -12,9 +12,9 @@
 </head>
 <body>
 	<%
-	ArrayList<User> userList = UserDAO.getInstance();
-	int log = Integer.parseInt((String) session.getAttribute("log"));
-	if (log != -1) {
+	ArrayList<Member> userList = MemberDAO.getInstance();
+			int log = Integer.parseInt((String) session.getAttribute("log"));
+			if (log != -1) {
 	%>
 
 	<h1>

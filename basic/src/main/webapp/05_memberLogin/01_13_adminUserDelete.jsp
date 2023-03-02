@@ -1,5 +1,5 @@
-<%@page import="kr.member.model.UserDAO"%>
-<%@page import="kr.member.model.User"%>
+<%@page import="kr.member.model.MemberDAO"%>
+<%@page import="kr.member.model.Member"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -14,7 +14,7 @@
 	<%
 	if (session.getAttribute("log").equals("admin")) {
 		int log = Integer.parseInt(request.getParameter("idx"));
-		ArrayList<User> userList = UserDAO.getInstance();
+		ArrayList<Member> userList = MemberDAO.getInstance();
 		userList.remove(log);
 	%>
 	<script>

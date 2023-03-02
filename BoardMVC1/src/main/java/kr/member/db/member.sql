@@ -3,7 +3,8 @@ create table member(
     id varchar(20) not null, 
     pass varchar(20) not null,
     name varchar(20) not null,
-    reg_num varchar(13) not null,
+    age int not null,
     email varchar(30) not null,
-    phone varchar(30) not null,    
+    phone varchar(30) not null
 );
+

@@ -13,17 +13,15 @@ import javax.servlet.http.HttpServletResponse;
 import kr.board.model.Board;
 import kr.board.model.BoardDAO;
 
-@WebServlet("/boardAddDummy.do")
-public class BoardAddDummyController extends HttpServlet{
+public class BoardAddDummyController implements Controller{
 
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		BoardDAO bdao = BoardDAO.getInstance();
-		ArrayList<Board> list = bdao.boardList();
+	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String ctx = request.getContextPath();
 		int cnt = BoardDAO.getInstance().addDummy();
 		if (cnt > 0) {
-			response.sendRedirect(ctx + "/boardList.do?pageNum=1");
+			return "redirect:"+ctx+"/boardList.do";
 		} else {
 			throw new ServletException("not add dummy");
 		}

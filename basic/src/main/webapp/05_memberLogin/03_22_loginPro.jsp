@@ -1,7 +1,7 @@
-<%@page import="kr.member.model.UserDAO"%>
+<%@page import="kr.member.model.MemberDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%@ page import="kr.member.model.User"%>
+<%@ page import="kr.member.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -13,15 +13,15 @@
 </head>
 <body>
 	<%
-	ArrayList<User> userList = UserDAO.getInstance();
-	boolean logChk = false;
-	int log = -1;
-	String loginId = request.getParameter("loginId");
-	String loginPw = request.getParameter("loginPw");
-	if (loginId.equals("admin") && loginPw.equals("admin")) {
+	ArrayList<Member> userList = MemberDAO.getInstance();
+			boolean logChk = false;
+			int log = -1;
+			String loginId = request.getParameter("loginId");
+			String loginPw = request.getParameter("loginPw");
+			if (loginId.equals("admin") && loginPw.equals("admin")) {
 		session.setAttribute("log", "admin");
 		response.sendRedirect("01_11_adminMain.jsp");
-	} else {
+			} else {
 		for (int i = 0; i < userList.size(); i++) {
 			if (userList.get(i).getId().equals(loginId)) {
 		log = i;

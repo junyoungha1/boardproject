@@ -1,4 +1,4 @@
-<%@page import="kr.member.model.User"%>
+<%@page import="kr.member.model.Member"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -6,7 +6,7 @@
 <%
 request.setCharacterEncoding("utf-8");
 int log = Integer.parseInt((String) session.getAttribute("log"));
-ArrayList<User> userList = (ArrayList<User>) session.getAttribute("userList");
+ArrayList<Member> userList = (ArrayList<Member>) session.getAttribute("userList");
 String updateId = userList.get(log).getId();
 String updateName = userList.get(log).getName();
 String updateGender = userList.get(log).getGender();

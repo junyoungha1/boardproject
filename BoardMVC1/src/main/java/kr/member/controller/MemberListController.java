@@ -1,26 +1,25 @@
-package kr.board.controller;
+package kr.member.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.board.model.Board;
-import kr.board.model.BoardDAO;
+import kr.board.controller.Controller;
+import kr.member.model.Member;
+import kr.member.model.MemberDAO;
 
-public class BoardListController implements Controller {
+public class MemberListController implements Controller {
 
 	@Override
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ArrayList<Board> list = BoardDAO.getInstance().boardList();
+		ArrayList<Member> list=MemberDAO.getInstance().memberList();	
 		request.setAttribute("list", list);
-		return "boardList";
+		return "memberList";
+
 	}
 
 }

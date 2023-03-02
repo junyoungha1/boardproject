@@ -1,5 +1,5 @@
-<%@page import="kr.member.model.UserDAO"%>
-<%@page import="kr.member.model.User"%>
+<%@page import="kr.member.model.MemberDAO"%>
+<%@page import="kr.member.model.Member"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -14,9 +14,9 @@
 <body>
 	<%
 	int log = Integer.parseInt((String) session.getAttribute("log"));
-	ArrayList<User> userList = UserDAO.getInstance();
-	String pw = request.getParameter("loginPw");
-	if (userList.get(log).getPw().equals(pw)) {
+			ArrayList<Member> userList = MemberDAO.getInstance();
+			String pw = request.getParameter("loginPw");
+			if (userList.get(log).getPw().equals(pw)) {
 	%>
 
 	<script>

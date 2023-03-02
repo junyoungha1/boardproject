@@ -12,28 +12,25 @@ import javax.servlet.http.HttpServletResponse;
 import kr.board.model.Board;
 import kr.board.model.BoardDAO;
 
-@WebServlet("/boardContent.do")
-public class BoardContentController extends HttpServlet {
+public class BoardContentController implements Controller {
 
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response)
+	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String ctx = request.getContextPath();
 		String conPath = request.getParameter("conPath");
 		int no = -1;
 		if (request.getParameter("no") == null) {
-			response.sendRedirect(ctx + "/boardList.do?pageNum=1");
+			return "redirect:"+ctx+"/boardList.do";
 		} else {
 			no = Integer.parseInt(request.getParameter("no"));
 		}
 		Board b = BoardDAO.getInstance().getBoard(no);
 		request.setAttribute("b", b);
 		if (conPath.equals("view")) {
-			RequestDispatcher rd = request.getRequestDispatcher("board/boardContent.jsp?no=" + no);
-			rd.forward(request, response); 
+			return "boardContent";
 		}else {
-			RequestDispatcher rd = request.getRequestDispatcher("board/updateBoard.jsp?no=" + no);
-			rd.forward(request, response); 
+			return "updateBoard";
 		}
 	}
 

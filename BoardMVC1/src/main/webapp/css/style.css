@@ -9,7 +9,9 @@ body {
 	direction: rtl;
 	text-align: right;
 }
-
+tbody{
+	width: 100%;
+}
 dd {
 	margin-right: 0;
 }

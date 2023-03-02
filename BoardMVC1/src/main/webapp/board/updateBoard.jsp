@@ -6,6 +6,9 @@
 <%@ include file="header.jsp"%>
 <div id="page-content-wrapper">
 	<div class="container-fluid">
+		<header>
+			<h1 style="color: #007bff;">수정하기</h1>
+		</header>
 		<form method="post" action="${ctx}/boardUpdate.do?no=${b.no}">
 			<table border="1">
 				<tr>
@@ -27,19 +30,18 @@
 
 				<tr>
 					<td>내용</td>
-					<td colspan="3"><textarea name="contents" rows="10"
-							cols="50">${b.contents }</textarea></td>
+					<td colspan="3"><textarea name="contents" rows="10" cols="50">${b.contents }</textarea></td>
 				</tr>
 			</table>
 			<nav aria-label="Page navigation example">
 				<ul class="pagination buttonBox">
-					<li class="page-item"><input type="submit"
-						class="page-link" value="수정완료" /></li>
+					<li class="page-item"><input type="submit" class="page-link update"
+						value="수정완료" /></li>
 					<li class="page-item"><input type="button"
 						class="page-link cancel" value="취소" /></li>
 				</ul>
 			</nav>
-			<td><input type="hidden" name="no" value= ${no} /></td>
+			<td><input type="hidden" name="no" value=${no } /></td>
 		</form>
 	</div>
 </div>
@@ -62,6 +64,10 @@
 					}
 				});
 			});
+			let update = document.querySelector(".update");
+			update.addEventListener('click', ()=>{
+				alert("수정완료");
+			})
 			let cancel = document.querySelector(".cancel");
 			cancel.addEventListener('click', ()=>{
 			    location.href = '${ctx}/boardContent.do?no=${b.no}&conPath=view';

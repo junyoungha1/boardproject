@@ -1,5 +1,5 @@
-<%@page import="kr.member.model.UserDAO"%>
-<%@page import="kr.member.model.User"%>
+<%@page import="kr.member.model.MemberDAO"%>
+<%@page import="kr.member.model.Member"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -13,7 +13,7 @@
 <body>
 	<%
 	if (session.getAttribute("log").equals("admin")) {
-		ArrayList<User> userList = UserDAO.getInstance();
+		ArrayList<Member> userList = MemberDAO.getInstance();
 	%>
 	<h1>관리자 페이지(회원정보 확인하기)</h1>
 	<table border="1">

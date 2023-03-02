@@ -13,18 +13,17 @@ import javax.servlet.http.HttpServletResponse;
 import kr.board.model.Board;
 import kr.board.model.BoardDAO;
 
-@WebServlet("/boardDeleteAll.do")
-public class BoardDeleteAllController extends HttpServlet {
+public class BoardDeleteAllController implements Controller {
 
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response)
+	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		BoardDAO bdao = BoardDAO.getInstance();
 		ArrayList<Board> list = bdao.boardList();
 		String ctx = request.getContextPath();
 		int cnt = BoardDAO.getInstance().removeAllBoard();
 		if (cnt > 0) {
-			response.sendRedirect(ctx + "/boardList.do?pageNum=1");
+			return "redirect:"+ctx+"/boardList.do";
 		} else {
 			throw new ServletException("not remove");
 		}

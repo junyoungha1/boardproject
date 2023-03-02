@@ -10,7 +10,7 @@
 		<header>
 			<h1 style="color: #007bff;">게시판</h1>
 		</header>
-	 	<%
+		<%
 		BoardDAO bdao = BoardDAO.getInstance();
 		ArrayList<Board> boardList = bdao.boardList();
 		int cnt = boardList.size();
@@ -63,7 +63,7 @@
 				</ul>
 			</nav>
 			<nav aria-label="Page navigation example">
-				<form action="addBoard.jsp">
+				<form action="${ctx}/board/addBoard.jsp">
 					<ul class="pagination"
 						style="width: 100%; padding-right: 40px; display: flex; justify-content: flex-end; align-items: center;">
 						<li class="page-item"><input type="submit" class="page-link"

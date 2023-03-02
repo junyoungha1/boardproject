@@ -35,7 +35,7 @@
 					href="${ctx}/board/main.jsp">Home <span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="../member/index.jsp">Login</a></li>
+					href="${ctx}/member/memberLogin.jsp">Login</a></li>
 			</ul>
 			<form class="form-inline my-2 my-md-0"></form>
 		</div>
@@ -49,7 +49,7 @@
 				<li><a href="${ctx}/boardList.do?pageNum=1">게시판</a></li>
 				<li><a href="${ctx}/boardAddDummy.do">더미게시물 추가</a></li>
 				<li><a href="${ctx}/boardDeleteAll.do">게시판 전체 삭제</a></li>
-				<li><a href="#">Events</a></li>
+				<li><a href="${ctx}/memberList.do">회원 목록</a></li>
 				<li><a href="#">About</a></li>
 				<li><a href="#">Services</a></li>
 				<li><a href="#">Contact</a></li>

@@ -1,8 +1,8 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Arrays"%>
-<%@ page import="kr.member.model.User"%>
-<%@ page import="kr.member.model.UserDAO"%>
+<%@ page import="kr.member.model.Member"%>
+<%@ page import="kr.member.model.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -11,11 +11,11 @@
 // init()
 
 // sample 데이터 ==> db 역할 (세션 )
-ArrayList<User> userList = UserDAO.getInstance();
+ArrayList<Member> userList = MemberDAO.getInstance();
 
-UserDAO.addUser("qwer", "1111", "이만수", "남성");
-UserDAO.addUser("abcd", "2222", "박영희", "여성");
-UserDAO.addUser("hello", "3333", "이수민", "여성");
+MemberDAO.addUser("qwer", "1111", "이만수", "남성");
+MemberDAO.addUser("abcd", "2222", "박영희", "여성");
+MemberDAO.addUser("hello", "3333", "이수민", "여성");
 /* session.setAttribute("userList", userList); */
 session.setAttribute("log", "-1");
 
