@@ -18,7 +18,7 @@
 <script
 	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="${ctx}/board/style.css">
 </head>
 <body>
 	<nav class="navbar navbar-expand navbar-dark bg-primary">
@@ -32,7 +32,7 @@
 		<div class="collapse navbar-collapse" id="navbarsExample02">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link"
-					href="00_main.jsp">Home <span class="sr-only">(current)</span>
+					href="${ctx}/board/00_main.jsp">Home <span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="../member/index.jsp">Login</a></li>
@@ -46,7 +46,7 @@
 		<div id="sidebar-wrapper">
 			<ul class="sidebar-nav">
 				<li class="sidebar-brand"><a href="#"> Start Bootstrap </a></li>
-				<li><a href="01_boardList.jsp?pageNum=1">게시판</a></li>
+				<li><a href="${ctx}/boardList.do?pageNum=1">게시판</a></li>
 				<li><a href="${ctx}/boardAddDummy.do">더미게시물 추가</a></li>
 				<li><a href="${ctx}/boardDeleteAll.do">게시판 전체 삭제</a></li>
 				<li><a href="#">Events</a></li>
