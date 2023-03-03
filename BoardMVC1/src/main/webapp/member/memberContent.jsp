@@ -50,7 +50,7 @@
 
 					<tr>
 						<td colspan="2" align="center"><input type="submit"
-							value="수정하기" class='col-5 btn btn-primary' /></td>
+							value="수정하기" class='page-link' /></td>
 					</tr>
 				</table>
 			</form>

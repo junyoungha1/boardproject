@@ -35,8 +35,8 @@
 			</table>
 			<nav aria-label="Page navigation example">
 				<ul class="pagination buttonBox">
-					<li class="page-item"><input type="submit" class="page-link update"
-						value="수정완료" /></li>
+					<li class="page-item"><input type="submit"
+						class="page-link update" value="수정완료" /></li>
 					<li class="page-item"><input type="button"
 						class="page-link cancel" value="취소" /></li>
 				</ul>
@@ -50,28 +50,23 @@
 <script src="js/bootstrap.bundle.min.js"></script>
 <!-- Menu Toggle Script -->
 <script>
-			$(function() {
-				$("#menu-toggle").click(function(e) {
-					e.preventDefault();
-					$("#wrapper").toggleClass("toggled");
-				});
+	$(function() {
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
 
-				$(window).resize(function(e) {
-					if ($(window).width() <= 768) {
-						$("#wrapper").removeClass("toggled");
-					} else {
-						$("#wrapper").addClass("toggled");
-					}
-				});
-			});
-			let update = document.querySelector(".update");
-			update.addEventListener('click', ()=>{
-				alert("수정완료");
-			})
-			let cancel = document.querySelector(".cancel");
-			cancel.addEventListener('click', ()=>{
-			    location.href = '${ctx}/boardContent.do?no=${b.no}&conPath=view';
-			})
-		</script>
+		$(window).resize(function(e) {
+			if ($(window).width() <= 768) {
+				$("#wrapper").removeClass("toggled");
+			} else {
+				$("#wrapper").addClass("toggled");
+			}
+		});
+	});
+	$(".cancel").click(function() {
+		location.href = 'boardList.jsp?pageNum=1';
+	})
+</script>
 </body>
 </html>

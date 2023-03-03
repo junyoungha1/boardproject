@@ -29,8 +29,8 @@
 			</table>
 			<nav aria-label="Page navigation example">
 				<ul class="pagination buttonBox">
-					<li class="page-item"><input type="submit" class="page-link write"
-						value="글쓰기" /></li>
+					<li class="page-item"><input type="submit"
+						class="page-link write" value="글쓰기" /></li>
 					<li class="page-item"><input type="button"
 						class="page-link cancel" value="취소" /></li>
 				</ul>
@@ -46,30 +46,24 @@
 <script src="js/bootstrap.bundle.min.js"></script>
 <!-- Menu Toggle Script -->
 <script>
-		$(function() {
-			$("#menu-toggle").click(function(e) {
-				e.preventDefault();
-				$("#wrapper").toggleClass("toggled");
-			});
-
-			$(window).resize(function(e) {
-				if ($(window).width() <= 768) {
-					$("#wrapper").removeClass("toggled");
-				} else {
-					$("#wrapper").addClass("toggled");
-				}
-			});
+	$(function() {
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
 		});
-		let write = document.querySelector(".write");
-		write.addEventListener('click', ()=>{
-			alert("작성완료");
-		})
-		let cancel = document.querySelector(".cancel");
-		cancel.addEventListener('click', ()=>{
-		    location.href = 'boardList.jsp?pageNum=1';
-		})
-		
-	</script>
+
+		$(window).resize(function(e) {
+			if ($(window).width() <= 768) {
+				$("#wrapper").removeClass("toggled");
+			} else {
+				$("#wrapper").addClass("toggled");
+			}
+		});
+	});
+	$(".cancel").click(function() {
+		location.href = 'boardList.jsp?pageNum=1';
+	})
+</script>
 
 </body>
 </html>

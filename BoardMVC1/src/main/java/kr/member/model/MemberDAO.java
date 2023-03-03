@@ -84,7 +84,7 @@ public ArrayList<Member> memberList() {
 }
 
 
-public String checkMemberId(String id) {
+public boolean isValidId(String id) {
 	 String SQL="select pass from member where id=?";
 	 connect();
 
@@ -92,15 +92,30 @@ public String checkMemberId(String id) {
 	   ps=conn.prepareStatement(SQL);
 	   ps.setString(1, id);
 		rs=ps.executeQuery();
-		 if(rs.next()) {
-			 return rs.getString("pass");
-		 }
+		return rs.next();
 	 } catch (Exception e) {
 		e.printStackTrace();
 	 }finally {
 		dbClose();
 	}	   
-	 return null;
+	 return false;
+}
+
+public boolean checkLogin(String id, String pw) {
+	String SQL = "select * from member where id=? and pw=?";
+	connect();
+	try {
+		ps = conn.prepareStatement(SQL);
+		ps.setString(1, id);
+		ps.setString(2, pw);
+		rs=ps.executeQuery();
+		return rs.next();
+	}catch (Exception e) {
+		e.printStackTrace();
+	}finally {
+		dbClose();
+	}
+	return false;
 }
 
 public int getMemberNo(String id) {

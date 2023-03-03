@@ -17,6 +17,7 @@ import kr.member.controller.MemberListController;
 import kr.member.controller.MemberLoginController;
 import kr.member.controller.MemberLogoutController;
 import kr.member.controller.MemberUpdateController;
+import kr.member.controller.ValidIdAjaxController;
 
 public class HandlerMapping {
 	private HashMap<String, Controller> mappings;
@@ -36,6 +37,7 @@ public class HandlerMapping {
 		mappings.put("/memberList.do", new MemberListController());
 		mappings.put("/memberLogin.do", new MemberLoginController());
 		mappings.put("/memberLogout.do", new MemberLogoutController());
+		mappings.put("/validIdAjax.do", new ValidIdAjaxController());
 	}
 	public Controller getController(String key) {
 		return mappings.get(key);

@@ -53,29 +53,26 @@
 <script src="js/bootstrap.bundle.min.js"></script>
 <!-- Menu Toggle Script -->
 <script>
-			$(function() {
-				$("#menu-toggle").click(function(e) {
-					e.preventDefault();
-					$("#wrapper").toggleClass("toggled");
-				});
+	$(function() {
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
 
-				$(window).resize(function(e) {
-					if ($(window).width() <= 768) {
-						$("#wrapper").removeClass("toggled");
-					} else {
-						$("#wrapper").addClass("toggled");
-					}
-				});
-			});
-			let cancel = document.querySelector(".cancel");
-			cancel.addEventListener('click', ()=>{
-			    location.href = '${ctx}/boardList.do?pageNum=1';
-			})
-			let delBoard= document.querySelector(".delete");
-			delBoard.addEventListener('click', ()=>{
-			    location.href = '${ctx}/boardDelete.do?no=${b.no}';
-			})
-			
-		</script>
+		$(window).resize(function(e) {
+			if ($(window).width() <= 768) {
+				$("#wrapper").removeClass("toggled");
+			} else {
+				$("#wrapper").addClass("toggled");
+			}
+		});
+	});
+	$(".cancel").click(function() {
+		location.href = 'boardList.jsp?pageNum=1';
+	})
+	$(".delete").click(function() {
+		location.href = '${ctx}/boardDelete.do?no=${b.no}';
+	})
+</script>
 </body>
 </html>

@@ -21,11 +21,11 @@ public class MemberLoginController implements Controller {
 	        }
 		String pw = request.getParameter("pw");
 
-		String dbPw = MemberDAO.getInstance().checkMemberId(id);
+		
 		
 		String ctx=request.getContextPath();
 
-		if (dbPw == null || dbPw.equals(pw) == false) {
+		if (MemberDAO.getInstance().checkLogin(id, pw)) {
 			return "redirect:"+ctx+"/memberLogin.do";
 		} else {
 			HttpSession session = request.getSession();

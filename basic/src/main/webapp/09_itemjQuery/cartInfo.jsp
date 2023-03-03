@@ -225,7 +225,7 @@
 							result += '</td>';
 							result += '</tr>';
 						}
-						
+							
 						$("#cart_item_table").append(result);
 						
 						init();

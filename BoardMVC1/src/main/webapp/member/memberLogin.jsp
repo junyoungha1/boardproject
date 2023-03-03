@@ -66,9 +66,8 @@
 			}
 		});
 	});
-	let join = document.querySelector(".join");
-	join.addEventListener('click', ()=>{
-	    location.href = '${ctx}/member/memberInsert.jsp';
+	$(".join").click(function(e){
+		 location.href = '${ctx}/member/memberInsert.jsp';
 	})
 </script>
 </body>
