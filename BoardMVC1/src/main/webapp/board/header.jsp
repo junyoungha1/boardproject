@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <c:set var="ctx" value="${ pageContext.request.contextPath }" />
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +16,8 @@
 	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet" href="${ctx}/css/style.css">
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+<script
+	src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 </head>
 <body>
 	<nav class="navbar navbar-expand navbar-dark bg-primary">
@@ -31,7 +31,7 @@
 		<div class="collapse navbar-collapse" id="navbarsExample02">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link"
-					href="${ctx}/board/main.jsp">Home <span class="sr-only">(current)</span>
+					href="${ctx}/carMain.do">Home <span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="${ctx}/member/memberLogin.jsp">Login</a></li>
@@ -44,13 +44,14 @@
 		<!-- Sidebar -->
 		<div id="sidebar-wrapper">
 			<ul class="sidebar-nav">
-				<li class="sidebar-brand"><a href="#"> Start Bootstrap </a></li>
+				<li class="sidebar-brand"><a href="#">Rent Car Service </a></li>
+				<li><a href="${ctx}/carSelect.do">예약하기</a></li>
+				<li><a href="#">예약확인</a></li>
 				<li><a href="${ctx}/boardList.do?pageNum=1">게시판</a></li>
 				<li><a href="${ctx}/boardAddDummy.do">더미게시물 추가</a></li>
 				<li><a href="${ctx}/boardDeleteAll.do">게시판 전체 삭제</a></li>
 				<li><a href="${ctx}/memberList.do">회원 목록</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Services</a></li>
-				<li><a href="#">Contact</a></li>
+				<li><a href="#">이벤트</a></li>
+				<li><a href="#">고객센터</a></li>
 			</ul>
 		</div>

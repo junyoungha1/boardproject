@@ -4,23 +4,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="header.jsp"%>
-
 <div id="page-content-wrapper">
 	<div class="container-fluid">
-		<h1>Simple Side</h1>
-		<p>This template has a responsive menu toggling system. The menu
-			will appear collapsed on smaller screens, and will appear
-			non-collapsed on larger screens. When toggled using the button below,
-			the menu will appear/disappear. On small screens, the page content
-			will be pushed off canvas.</p>
-		<p>
-			Make sure to keep all page content within the
-			<code>#page-content-wrapper</code>
-			.
-		</p>
+		<table>
+			<tr align="center">
+				<td align="center" width="1000">
+				<c:if test="${center ne null }">
+				<jsp:include page="${center }" />
+				</c:if>
+				<c:if test="${center eq null }">
+				<jsp:include page="../rentcar/carMain.jsp" />
+				</c:if>
+				</td>
+			</tr>
+			<tr height="100" align="center">
+				<td align="center" width="1000">
+				<jsp:include page="../rentcar/bottom.jsp" />
+			</tr>
+		</table>
 	</div>
-</div>
-<!-- /#page-content-wrapper -->
+
+	<!-- /#page-content-wrapper -->
 </div>
 <!-- /#wrapper -->
 <!-- Bootstrap core JavaScript -->
@@ -28,20 +32,21 @@
 <script src="js/bootstrap.bundle.min.js"></script>
 <!-- Menu Toggle Script -->
 <script>
-		$(function() {
-			$("#menu-toggle").click(function(e) {
-				e.preventDefault();
-				$("#wrapper").toggleClass("toggled");
-			});
-
-			$(window).resize(function(e) {
-				if ($(window).width() <= 768) {
-					$("#wrapper").removeClass("toggled");
-				} else {
-					$("#wrapper").addClass("toggled");
-				}
-			});
+	$(function() {
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
 		});
-	</script>
+
+		$(window).resize(function(e) {
+			if ($(window).width() <= 768) {
+				$("#wrapper").removeClass("toggled");
+			} else {
+				$("#wrapper").addClass("toggled");
+			}
+		});
+	});
+	
+</script>
 </body>
 </html>

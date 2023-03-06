@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.websocket.Session;
 
 import kr.board.controller.Controller;
 
@@ -26,6 +27,7 @@ public class FrontController extends HttpServlet {
 		String nextPage = cont.requestHandler(request, response);
 		String viewRes = ViewResolver.makeView(nextPage, key);
 		String conPath = null;
+
 		int no = -1;
 		int pageNum = -1;
 		if (request.getParameter("no") != null) {
@@ -43,8 +45,9 @@ public class FrontController extends HttpServlet {
 				nextPage += "?no=" + no + "&pageNum=" + pageNum + "&conPath=" + conPath;
 				response.sendRedirect(nextPage.split(":")[1]);
 			} else {
-				viewRes += "?no=" + no + "&pageNum=" + pageNum + "&conPath=" + conPath;
-				RequestDispatcher rd = request.getRequestDispatcher(viewRes);
+				request.setAttribute("center", viewRes);
+				System.out.println(viewRes);
+				RequestDispatcher rd = request.getRequestDispatcher("/board/main.jsp");
 				rd.forward(request, response);
 			}
 		}
