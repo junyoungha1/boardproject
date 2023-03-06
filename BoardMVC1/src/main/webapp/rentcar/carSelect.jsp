@@ -19,29 +19,41 @@
 					자동차</h2></td>
 		</tr>
 		<tr>
-			<td id="carList"><img width="30%" height = auto alt=""
-				src="${ctx }/img/${newestList.get(0).img}"><br />차랑명:${newestList.get(0).name }</td>
-			<td id="carList"><img width="30%" height = auto alt=""
-				src="${ctx }/img/${newestList.get(1).img}"><br />차랑명:${newestList.get(1).name }</td>
-			<td id="carList"><img width="30%" height = auto alt=""
-				src="${ctx }/img/${newestList.get(2).img}"><br />차랑명:${newestList.get(2).name }</td>
+			<td id="carList"><img alt=""
+				src="${ctx }/img/${newestList.get(0).img}"><br />
+			<strong>${newestList.get(0).name }</strong></td>
+			<td id="carList"><img alt=""
+				src="${ctx }/img/${newestList.get(1).img}"><br />
+			<strong>${newestList.get(1).name }</strong></td>
+			<td id="carList"><img alt=""
+				src="${ctx }/img/${newestList.get(2).img}"><br />
+			<strong>${newestList.get(2).name }</strong></td>
 		</tr>
 		<tr>
 			<td colspan="3" align="center">
-				<hr color="red" size="5"> 차량 검색하기<br /> 차량 검색하기 <select
-				id="selCategory" onchange="selectBox">
-					<option value="small">소형</option>
-					<option value="middle">중형</option>
-					<option value="big">대형</option>
-			</select>
-			<input type="button" value="검색" />
-			<input type="button" value="전체 보기" />
+				<hr color="red" size="5"> 차량 검색하기<br /> 차량 검색하기 
+				<select
+				id="selCategory">
+					<option value="1">소형</option>
+					<option value="2">중형</option>
+					<option value="3">대형</option>
+			</select> <input type="button" id="search" value="검색" /> <input type="button"
+				value="전체 보기" />
 			</td>
 		</tr>
 	</table>
 
 	<script type="text/javascript">
-		
+	var category = null;
+		$("#selCategory").change(function(){
+			category = $(this).val();
+		})
+		$("#search").click(function() {
+			if(category==null){
+				category = 1;
+			}
+			location.href = '${ctx}/carCategoryList.do?category='+category;
+		})
 	</script>
 </body>
 </html>
