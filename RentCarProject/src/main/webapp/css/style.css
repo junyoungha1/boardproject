@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+* {
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+}
+
+html, body {
+	height: 100vh;
+	width: 100vw;
+}
+
+
+a {
+	text-decoration: none;
+}
+
+#logo {
+	height: 100%;
+	width: 10%;
+}
+
+#menuBar {
+	width: 100%;
+	height: 100%;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 3px;
+}
+
+#menu {
+	height: 100%;
+	background-color: pink;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 18px;
+}
