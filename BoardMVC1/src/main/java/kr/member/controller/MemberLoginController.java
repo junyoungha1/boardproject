@@ -16,23 +16,18 @@ public class MemberLoginController implements Controller {
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String id = request.getParameter("id");
-	      if(request.getParameter("id") == null) {
-	        	return "memberLogin";
-	        }
 		String pw = request.getParameter("pw");
+		String passData = MemberDAO.getInstance().checkLogin(id, pw) ? "valid" : "notValid";
 
-		
-		
-		String ctx=request.getContextPath();
+		HttpSession session = request.getSession();
 
-		if (MemberDAO.getInstance().checkLogin(id, pw)) {
-			return "redirect:"+ctx+"/memberLogin.do";
+		if (passData.equals("notValid")) {
+			session.setAttribute("log", null);
 		} else {
-			HttpSession session = request.getSession();
-			session.setAttribute("log", MemberDAO.getInstance().getMemberNo(id));
-			return "redirect:"+ctx+"/memberList.do";
+			session.setAttribute("log", id);
 		}
-		
+		response.getWriter().print(passData);
+		return null;
 	}
 
 }

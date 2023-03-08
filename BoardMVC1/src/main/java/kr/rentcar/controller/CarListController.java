@@ -16,8 +16,8 @@ public class CarListController implements Controller{
 	@Override
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ArrayList<RentCar> list = RentCarDAO.getInstance().getNewestCars();
-		request.setAttribute("list", list);
+		ArrayList<RentCar> list = RentCarDAO.getInstance().getCarList();
+		request.setAttribute("carList", list);
 		return "carList";
 	}
 

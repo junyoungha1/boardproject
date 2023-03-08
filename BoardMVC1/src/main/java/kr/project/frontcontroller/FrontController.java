@@ -26,27 +26,14 @@ public class FrontController extends HttpServlet {
 		Controller cont = mapping.getController(key);
 		String nextPage = cont.requestHandler(request, response);
 		String viewRes = ViewResolver.makeView(nextPage, key);
-		String conPath = null;
-
-		int no = -1;
-		int pageNum = -1;
-		if (request.getParameter("no") != null) {
-			no = Integer.parseInt(request.getParameter("no"));
-		}
-		if (request.getParameter("pageNum") != null) {
-			pageNum = Integer.parseInt(request.getParameter("pageNum"));
-		}
-		if (request.getParameter("conPath") != null) {
-			conPath = request.getParameter("conPath");
-		}
 
 		if (nextPage != null) {
 			if (nextPage.contains("redirect:")) {
-				nextPage += "?no=" + no + "&pageNum=" + pageNum + "&conPath=" + conPath;
-				response.sendRedirect(nextPage.split(":")[1]);
+				request.setAttribute("center", nextPage.split(":")[1]);
+				response.sendRedirect(ctx+"/board/main.jsp");
 			} else {
-				request.setAttribute("center", viewRes);
 				System.out.println(viewRes);
+				request.setAttribute("center", viewRes);
 				RequestDispatcher rd = request.getRequestDispatcher("/board/main.jsp");
 				rd.forward(request, response);
 			}

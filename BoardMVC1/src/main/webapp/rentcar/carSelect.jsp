@@ -38,7 +38,7 @@
 					<option value="2">중형</option>
 					<option value="3">대형</option>
 			</select> <input type="button" id="search" value="검색" /> <input type="button"
-				value="전체 보기" />
+				id="allList" value="전체 보기" />
 			</td>
 		</tr>
 	</table>
@@ -54,6 +54,9 @@
 			}
 			location.href = '${ctx}/carCategoryList.do?category='+category;
 		})
+		$("#allList").click(function(){
+			location.href = '${ctx}/carList.do';
+		})	
 	</script>
 </body>
 </html>

@@ -17,7 +17,7 @@ public class MemberLogoutController implements Controller {
 		HttpSession session = request.getSession();
 		session.removeAttribute("log");
 		String ctx = request.getContextPath();
-		return "redirect:" + ctx + "/memberList.do";
+		return "redirect:" + ctx + "/board/main.jsp";
 	}
 
 }

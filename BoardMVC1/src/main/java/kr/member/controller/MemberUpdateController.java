@@ -19,20 +19,20 @@ public class MemberUpdateController implements Controller {
 		if (request.getParameter("num") == null) {
 			return "memberContent";
 		}
-		int num = Integer.parseInt(request.getParameter("num"));
-		int age = Integer.parseInt(request.getParameter("age"));
-		String email = request.getParameter("email");
-		String phone = request.getParameter("phone");
+		String id = request.getParameter("log");
 
-		Member m = new Member();
-		m.setNum(num);
-		m.setAge(age);
-		m.setEmail(email);
-		m.setPhone(phone);
+		Member m = MemberDAO.getInstance().getMember(id);
+		m.setPw(request.getParameter("pw"));
+		m.setEmail(request.getParameter("email"));
+		m.setTel(request.getParameter("tel"));
+		m.setHobby(request.getParameter("hobby"));
+		m.setJob(request.getParameter("job"));
+		m.setAge(request.getParameter("age"));
+		m.setInfo(request.getParameter("info"));
 		String ctx = request.getContextPath();
 		int cnt = MemberDAO.getInstance().memberUpdate(m);
 		if (cnt > 0) {
-			return "redirect:" + ctx + "/memberList.do";
+			return "redirect:" + ctx + "/board/main.jsp";
 
 		} else {
 			throw new ServletException("not update");

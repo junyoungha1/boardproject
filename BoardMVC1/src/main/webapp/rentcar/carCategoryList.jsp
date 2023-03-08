@@ -15,14 +15,18 @@
 			<td colspan="3" align="center"><h2 style="color: gray;">${categoryName}
 					자동차</h2></td>
 		</tr>
-		<tr>
-			<c:forEach var="item" items="${categoryList}" begin="0"
-				end="${categoryList.size() }" step="1" varStatus="status">
-				<td id="carList"><img alt=""
-					src="${ctx }/img/${categoryList.get(status.index).img}"><br />
-					<strong>${categoryList.get(status.index).name }</strong></td>
-			</c:forEach>
-		</tr>
+		<c:forEach var="item" items="${categoryList}" begin="0"
+			end="${categoryList.size() }" step="1" varStatus="status">
+			<c:if test="${(status.index)%3 eq 0}">
+				<tr>
+			</c:if>
+			<td id="carList"><img alt=""
+				src="${ctx }/img/${categoryList.get(status.index).img}"><br />
+				<strong>${categoryList.get(status.index).name }</strong></td>
+			<c:if test="${(status.index)%3 eq 2}">
+				</tr>
+			</c:if>
+		</c:forEach>
 		<tr>
 			<td colspan="3" align="center">
 				<hr color="red" size="5"> 차량 검색하기<br /> 차량 검색하기 <select
@@ -31,9 +35,26 @@
 					<option value="2">중형</option>
 					<option value="3">대형</option>
 			</select> <input type="button" id="search" value="검색" /> <input type="button"
-				value="전체 보기" />
+				id="allList" value="전체 보기" />
 			</td>
 		</tr>
 	</table>
+
+
+	<script type="text/javascript">
+	var category = null;
+	$("#selCategory").change(function(){
+		category = $(this).val();
+	})
+	$("#search").click(function() {
+		if(category==null){
+			category = 1;
+		}
+		location.href = '${ctx}/carCategoryList.do?category='+category;
+	})
+	$("#allList").click(function(){
+		location.href = '${ctx}/carList.do';
+	})	
+	</script>
 </body>
 </html>

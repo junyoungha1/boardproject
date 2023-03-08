@@ -5,12 +5,14 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="header.jsp"%>
 <div id="page-content-wrapper">
+
 	<div class="container-fluid">
 		<table>
+		
 			<tr align="center">
 				<td align="center" width="1000">
 				<c:if test="${center ne null }">
-				<jsp:include page="${center }" />
+				<jsp:include page="..${center }" />
 				</c:if>
 				<c:if test="${center eq null }">
 				<jsp:include page="../rentcar/carMain.jsp" />

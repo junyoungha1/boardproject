@@ -23,8 +23,10 @@ import kr.rentcar.controller.CarDeleteController;
 import kr.rentcar.controller.CarListController;
 import kr.rentcar.controller.CarMainController;
 import kr.rentcar.controller.CarReserveController;
+import kr.rentcar.controller.CarReserveListController;
 import kr.rentcar.controller.CarSelectController;
 import kr.rentcar.controller.CarSelectOptionController;
+import kr.rentcar.controller.CarReserveMainController;
 
 public class HandlerMapping {
 	private HashMap<String, Controller> mappings;
@@ -52,6 +54,8 @@ public class HandlerMapping {
 		mappings.put("/carMain.do", new CarMainController());
 		mappings.put("/carReserve.do", new CarReserveController());
 		mappings.put("/carSelectOption.do", new CarSelectOptionController());
+		mappings.put("/carReserveList.do", new CarReserveListController());
+		mappings.put("/carReserveMain.do", new CarReserveMainController());
 	}
 	public Controller getController(String key) {
 		return mappings.get(key);

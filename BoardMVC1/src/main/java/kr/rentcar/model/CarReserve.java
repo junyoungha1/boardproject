@@ -29,20 +29,6 @@ public class CarReserve {
 		this.useseat = useseat;
 	}
 
-	public CarReserve(int reserve_seq, String id, int qty, int dday, String rday, int usein, int usewifi, int usenavi,
-			int useseat) {
-		super();
-		this.reserve_seq = reserve_seq;
-		this.id = id;
-		this.qty = qty;
-		this.dday = dday;
-		this.rday = rday;
-		this.usein = usein;
-		this.usewifi = usewifi;
-		this.usenavi = usenavi;
-		this.useseat = useseat;
-	}
-
 	public int getReserve_seq() {
 		return reserve_seq;
 	}

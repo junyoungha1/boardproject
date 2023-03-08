@@ -1,44 +1,28 @@
 package kr.member.model;
 
 public class Member {
-	private int num;
 	private String id;
-	private String pass;
-	private String name;
-	private int age;
+	private String pw;
 	private String email;
-	private String phone;
+	private String tel;
+	private String hobby;
+	private String job;
+	private String age;
+	private String info;
 
 	public Member() {
 	}
 
-	public Member(int num, String id, String pass, String name, int age, String email, String phone) {
-		super();
-		this.num = num;
-		this.id = id;
-		this.pass = pass;
-		this.name = name;
-		this.age = age;
-		this.email = email;
-		this.phone = phone;
-	}
-
-	public Member(String id, String pass, String name, int age, String email, String phone) {
+	public Member(String id, String pw, String email, String tel, String hobby, String job, String age, String info) {
 		super();
 		this.id = id;
-		this.pass = pass;
-		this.name = name;
-		this.age = age;
+		this.pw = pw;
 		this.email = email;
-		this.phone = phone;
-	}
-
-	public int getNum() {
-		return num;
-	}
-
-	public void setNum(int num) {
-		this.num = num;
+		this.tel = tel;
+		this.hobby = hobby;
+		this.job = job;
+		this.age = age;
+		this.info = info;
 	}
 
 	public String getId() {
@@ -49,28 +33,12 @@ public class Member {
 		this.id = id;
 	}
 
-	public String getPass() {
-		return pass;
+	public String getPw() {
+		return pw;
 	}
 
-	public void setPass(String pass) {
-		this.pass = pass;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
+	public void setPw(String pw) {
+		this.pw = pw;
 	}
 
 	public String getEmail() {
@@ -81,12 +49,44 @@ public class Member {
 		this.email = email;
 	}
 
-	public String getPhone() {
-		return phone;
+	public String getTel() {
+		return tel;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+
+	public String getHobby() {
+		return hobby;
+	}
+
+	public void setHobby(String hobby) {
+		this.hobby = hobby;
+	}
+
+	public String getJob() {
+		return job;
+	}
+
+	public void setJob(String job) {
+		this.job = job;
+	}
+
+	public String getAge() {
+		return age;
+	}
+
+	public void setAge(String age) {
+		this.age = age;
+	}
+
+	public String getInfo() {
+		return info;
+	}
+
+	public void setInfo(String info) {
+		this.info = info;
 	}
 
 }

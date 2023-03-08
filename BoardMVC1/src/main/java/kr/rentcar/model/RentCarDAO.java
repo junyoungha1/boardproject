@@ -34,7 +34,31 @@ public class RentCarDAO {
 			e.printStackTrace();
 		}
 	}
-
+	public RentCar getOneCar(int no) {
+		String SQL = "select * from rentcar where no=?";
+		connect();
+		RentCar rc= null;
+		try {
+			ps = conn.prepareStatement(SQL);
+			ps.setInt(1, no);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				String name = rs.getString("name");
+				int category = rs.getInt("category");
+				int price = rs.getInt("price");
+				int usepeople = rs.getInt("usepeople");
+				String company = rs.getString("company");
+				String img = rs.getString("img");
+				String info = rs.getString("info");
+				rc = new RentCar(no,name,category,price,usepeople,company,img,info);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			dbClose();
+		}
+		return rc;
+	}
 	public ArrayList<RentCar> getCarList(){
 		String SQL = "select * from rentcar";
 		ArrayList<RentCar> list = new ArrayList<RentCar>();
