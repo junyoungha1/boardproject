@@ -30,7 +30,7 @@
 				<td rowspan="6" id="carList" width="700px"><img alt=""
 					src="${ctx }/img/${rc.img}" /></td>
 				<td>대여기간</td>
-				<td><select id="selCnt">
+				<td><select id="selDay" name="rentDay">
 						<option value="1">1일</option>
 						<option value="2">2일</option>
 						<option value="3">3일</option>
@@ -38,26 +38,26 @@
 			</tr>
 			<tr>
 				<td>대여일</td>
-				<td><input type="date" /></td>
+				<td><input type="date" name="rentDate"/></td>
 			</tr>
 			<tr>
 				<td>보험</td>
-				<td><input type="checkbox" /></td>
+				<td><input type="checkbox" name="ins" /></td>
 			</tr>
 			<tr>
 				<td>Wi-fi</td>
-				<td><input type="checkbox" /></td>
+				<td><input type="checkbox" name="wifi"/></td>
 			</tr>
 			<tr>
 				<td>네비게이션</td>
-				<td><input type="checkbox" /></td>
+				<td><input type="checkbox" name="navi"/></td>
 			</tr>
 			<tr>
 				<td>베이비시트</td>
-				<td><input type="checkbox" /></td>
+				<td><input type="checkbox" name="seat"/></td>
 			</tr>
 			<tr>
-				<td colspan="3" align="justify"><input type="submit"
+				<td colspan="3" align="center"><input type="submit"
 					value="차량 예약하기" /><input type="button" value="취소" /></td>
 			</tr>
 		</table>

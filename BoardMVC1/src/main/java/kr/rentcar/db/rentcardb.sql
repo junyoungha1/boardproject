@@ -24,7 +24,7 @@ CREATE TABLE member(
 );
 
 CREATE TABLE carreserve(
-	reserve_seq INT,
+	reserve_seq INT primary key auto_increment,
     no INT,
     id VARCHAR(50),
     qty INT,
@@ -35,7 +35,7 @@ CREATE TABLE carreserve(
     usenavi INT,
     useseat INT
 );
-
+drop table carreserve;
 INSERT INTO member VALUES ('qwer', '1234', 'qwer@naver.com', '010-2343-2444', '스포츠', '개발자', 31, '반갑습니다');
 INSERT INTO member VALUES ('asdf', '1234', 'qwer@naver.com', '010-2343-2444', '스포츠', '개발자', 31, '반갑습니다');
 select * from member;
