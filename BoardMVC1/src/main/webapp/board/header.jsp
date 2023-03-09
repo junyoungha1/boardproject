@@ -19,11 +19,6 @@
 <script
 	src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 <script type="text/javascript">
-function logChk(){
-	if(${log}!=null){
-		location.href = ''
-	}
-}
 
 </script>
 </head>
@@ -39,7 +34,7 @@ function logChk(){
 		<div class="collapse navbar-collapse" id="navbarsExample02">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link"
-					href="${ctx}/carMain.do">Home <span class="sr-only">(current)</span>
+					href="${ctx}/board/main.jsp">Home <span class="sr-only">(current)</span>
 				</a></li>
 				<c:if test="${log eq null }">
 					<li class="nav-item"><a class="nav-link"
@@ -59,13 +54,16 @@ function logChk(){
 		<div id="sidebar-wrapper">
 			<ul class="sidebar-nav">
 				<c:if test="${log ne null }">
-				<li class="sidebar-brand"><a href="${ctx }/memberContent.do">${log }님 환영합니다</a></li>
+					<li class="sidebar-brand"><a href="${ctx }/memberContent.do">${log }님
+							환영합니다</a></li>
 				</c:if>
 				<c:if test="${log eq null }">
-				<li class="sidebar-brand"><a href="#"> </a></li>
+					<li class="sidebar-brand"><a href="#"> </a></li>
 				</c:if>
 				<li><a href="${ctx}/carSelect.do">예약하기</a></li>
-				<li><a href="#" onclick="logChk()">예약확인</a></li>
+				<c:if test="${log ne null }">
+					<li><a href="${ctx}/carReserveList.do">예약확인</a></li>
+				</c:if>
 				<li><a href="${ctx}/boardList.do?pageNum=1">게시판</a></li>
 				<li><a href="${ctx}/boardAddDummy.do">더미게시물 추가</a></li>
 				<li><a href="${ctx}/boardDeleteAll.do">게시판 전체 삭제</a></li>

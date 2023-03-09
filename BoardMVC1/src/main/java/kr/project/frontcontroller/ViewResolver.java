@@ -7,7 +7,11 @@ public class ViewResolver {
 		} else if (key.contains("member")) {
 			return "/member/" + nextPage + ".jsp";
 		} else if (key.contains("car")) {
-			return "/rentcar/" + nextPage + ".jsp";
+			if (nextPage.equals("carReserve")) {
+				return "/rentcar/carSelect.jsp";
+			} else {
+				return "/rentcar/" + nextPage + ".jsp";
+			}
 		} else {
 			return null;
 		}

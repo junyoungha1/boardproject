@@ -17,6 +17,7 @@ public class MemberLoginController implements Controller {
 			throws ServletException, IOException {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
+
 		String passData = MemberDAO.getInstance().checkLogin(id, pw) ? "valid" : "notValid";
 
 		HttpSession session = request.getSession();

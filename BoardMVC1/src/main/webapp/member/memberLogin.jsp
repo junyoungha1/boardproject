@@ -5,6 +5,7 @@
 <script
 	src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 <script type="text/javascript">
+
 	function checkLogin(){
 		if ($("#id").val() == '') {
 			alert("아이디를 입력하세요.");
@@ -28,7 +29,16 @@
 				"id" : id,
 				"pw" : pw
 			},
-			success : getResult,
+			success : function(data){
+				console.log("test = " + data);
+				if(data=="valid"){
+					alert(${log});
+					location.href = '${ctx}/board/main.jsp';
+				}else if(data=="notValid"){
+					alert("id 혹은 pw를 확인하세요");
+					history.back();
+				}
+			},
 			error : function() {
 				alert("error");
 			}
@@ -36,9 +46,10 @@
 	}
 	
 	function getResult(data){
+
 		if(data=="valid"){
 			alert(${log});
-			location.href = '${ctx}/board/main.jsp'
+			location.href = '${ctx}/board/main.jsp';
 		}else if(data=="notValid"){
 			alert("id 혹은 pw를 확인하세요");
 			history.back();

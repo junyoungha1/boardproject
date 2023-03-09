@@ -14,7 +14,7 @@
 	<table>
 		<tr height="100" align="center">
 			<td align="center" width="1000"><img alt=""
-				src="../img/17.jpg" /></td>
+				src="${ctx }/img/17.jpg" /></td>
 		</tr>
 	</table>
 </body>

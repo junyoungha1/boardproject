@@ -59,30 +59,37 @@ public class CarReserveDAO {
 		}
 		return cnt;
 	}
-	
-	public int reserveCarDelete(CarReserve c) {
-		String SQL = "insert into carreserve(reserve_seq, no, id, qty, dday, rday, usein, usewifi, usenavi, useseat) values(?,?,?,?,?,?,?,?,?,?)";
+
+	public int chkOption(String option) {
+		if (option == null) {
+			return 0;
+		} else {
+			return 1;
+		}
+	}
+
+	public ArrayList<RentCar> getInfoList(String id) {
+		ArrayList<RentCar> infoList = new ArrayList<RentCar>();
+		ArrayList<CarReserve> reserveList = CarReserveDAO.getInstance().getReserveList(id);
+		for (CarReserve cr : reserveList) {
+			infoList.add(RentCarDAO.getInstance().getOneCar(cr.getNo()));
+		}
+		return infoList;
+
+	}
+
+	public void reserveCarDelete(int reserve_seq) {
+		String SQL = "delete from carreserve where reserve_seq = ? ";
 		connect();
-		int cnt = -1;
 		try {
 			ps = conn.prepareStatement(SQL);
-			ps.setInt(1, c.getReserve_seq());
-			ps.setInt(2, c.getNo());
-			ps.setString(3, c.getId());
-			ps.setInt(4, c.getQty());
-			ps.setInt(5, c.getDday());
-			ps.setString(6, c.getRday());
-			ps.setInt(7, c.getUsein());
-			ps.setInt(8, c.getUsewifi());
-			ps.setInt(9, c.getUsenavi());
-			ps.setInt(10, c.getUseseat());
-			cnt = ps.executeUpdate();
+			ps.setInt(1, reserve_seq);
+			ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			dbClose();
 		}
-		return cnt;
 	}
 
 	public ArrayList<CarReserve> getReserveList(String id) {

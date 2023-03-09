@@ -14,6 +14,20 @@ public class CarReserve {
 	
 	public CarReserve() {}
 
+	public CarReserve(int no, String id, int qty, int dday, String rday, int usein, int usewifi, int usenavi,
+			int useseat) {
+		super();
+		this.no = no;
+		this.id = id;
+		this.qty = qty;
+		this.dday = dday;
+		this.rday = rday;
+		this.usein = usein;
+		this.usewifi = usewifi;
+		this.usenavi = usenavi;
+		this.useseat = useseat;
+	}
+
 	public CarReserve(int reserve_seq, int no, String id, int qty, int dday, String rday, int usein, int usewifi,
 			int usenavi, int useseat) {
 		super();

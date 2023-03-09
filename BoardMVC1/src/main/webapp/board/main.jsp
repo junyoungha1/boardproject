@@ -8,20 +8,17 @@
 
 	<div class="container-fluid">
 		<table>
-		
+
 			<tr align="center">
-				<td align="center" width="1000">
-				<c:if test="${center ne null }">
-				<jsp:include page="..${center }" />
-				</c:if>
-				<c:if test="${center eq null }">
-				<jsp:include page="../rentcar/carMain.jsp" />
-				</c:if>
-				</td>
+				<td align="center" width="1000"><c:if test="${center ne null }">
+						<jsp:include page="${center }" />
+					</c:if> <c:if test="${center eq null }">
+						<jsp:include page="../rentcar/carMain.jsp" />
+					</c:if></td>
 			</tr>
 			<tr height="100" align="center">
-				<td align="center" width="1000">
-				<jsp:include page="../rentcar/bottom.jsp" />
+				<td align="center" width="1000"><jsp:include
+						page="../rentcar/bottom.jsp" />
 			</tr>
 		</table>
 	</div>
