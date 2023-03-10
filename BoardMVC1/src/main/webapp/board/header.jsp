@@ -61,11 +61,13 @@
 					<li class="sidebar-brand"><a href="#"> </a></li>
 				</c:if>
 				<li><a href="${ctx}/carSelect.do">예약하기</a></li>
-				<c:if test="${log ne null }">
+				<c:if test="${log ne null}">
 					<li><a href="${ctx}/carReserveList.do">예약확인</a></li>
 				</c:if>
 				<li><a href="${ctx}/boardList.do?pageNum=1">게시판</a></li>
-				<li><a href="${ctx}/boardAddDummy.do">더미게시물 추가</a></li>
+				<c:if test="${log eq 'admin' }">
+				<li><a href="${ctx}/carAddPage.do">렌트카 추가</a></li>
+				</c:if>
 				<li><a href="${ctx}/boardDeleteAll.do">게시판 전체 삭제</a></li>
 				<li><a href="${ctx}/memberList.do">회원 목록</a></li>
 				<li><a href="#">이벤트</a></li>

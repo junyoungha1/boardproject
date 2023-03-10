@@ -30,6 +30,7 @@
 			alert("사용 가능한 id입니다.");
 			$("#id").focus();
 			$("#id").css("border", "2px solid green");
+			$("#id").attr('readonly', true);
 			check = 1;
 		} else if (data == "notValid") {
 			alert("이미 사용중인 id 입니다.");
@@ -51,13 +52,13 @@
 			return false;
 		}
 
-		if (!form.phone.value.match(/010-\d{3,4}-\d{4}/)) {
+		if (!form.tel.value.match(/010-\d{3,4}-\d{4}/)) {
 			alert("전화번호 형식이 다릅니다! ex)010-1234-1234");
 			form.phone.focus();
 			form.phone.css("border", "2px solid red");
 			return false;
 		}
-
+		alert("회원가입 완료");
 		form.submit();
 
 	}
@@ -86,23 +87,28 @@
 					</tr>
 					<tr>
 						<td>패스워드</td>
-						<td><input type="password" name="pass" required /></td>
+						<td><input type="password" name="pw" required /></td>
 					</tr>
 					<tr>
-						<td>이름</td>
-						<td><input type="text" name="name" /></td>
-					</tr>
-					<tr>
-						<td>나이</td>
-						<td><input type="text" name="age" /></td>
+						<td>전화번호</td>
+						<td><input type="text" name="tel" /></td>
 					</tr>
 					<tr>
 						<td>이메일</td>
 						<td><input type="text" name="email" /></td>
 					</tr>
 					<tr>
-						<td>전화번호</td>
-						<td><input type="text" name="phone" /></td>
+
+						<td>취미</td>
+						<td><input type="text" name="hobby" /></td>
+					</tr>
+					<tr>
+						<td>나이</td>
+						<td><input type="text" name="age" /></td>
+					</tr>
+					<tr>
+						<td>자기 소개</td>
+						<td><textarea name="info"></textarea></td>
 					</tr>
 				</table>
 				<nav aria-label="Page navigation example">

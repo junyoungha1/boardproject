@@ -12,6 +12,17 @@ public class RentCar {
 
 	public RentCar() {}
 
+	public RentCar(String name, int category, int price, int usepeople, String company, String img, String info) {
+		super();
+		this.name = name;
+		this.category = category;
+		this.price = price;
+		this.usepeople = usepeople;
+		this.company = company;
+		this.img = img;
+		this.info = info;
+	}
+
 	public RentCar(int no, String name, int category, int price, int usepeople, String company, String img,
 			String info) {
 		super();

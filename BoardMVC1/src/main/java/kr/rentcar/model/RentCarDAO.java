@@ -29,7 +29,6 @@ public class RentCarDAO {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(URL, user, password);
-			System.out.println("db연동 성공");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -166,6 +165,51 @@ public class RentCarDAO {
 			dbClose();
 		}
 		return list;
+	}
+
+	int getMaxNum() {
+		String SQL = "select count(*), max(no) from rentcar";
+		connect();
+		int maxNo = 0;
+		try {
+			ps = conn.prepareStatement(SQL);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				int cnt = rs.getInt(1);
+				if (cnt > 0) {
+					maxNo = rs.getInt(2);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbClose();
+		}
+		return ++maxNo;
+	}
+
+	public int addRentCar(RentCar r) {
+		int maxNo = getMaxNum();
+		String SQL = "insert into rentcar(no,name,category,price,usepeople,company,img,info) values(?,?,?,?,?,?,?,?)";
+		connect();
+		int cnt = -1;
+		try {
+			ps = conn.prepareStatement(SQL);
+			ps.setInt(1, maxNo);
+			ps.setString(2, r.getName());
+			ps.setInt(3, r.getCategory());
+			ps.setInt(4, r.getPrice());
+			ps.setInt(5, r.getUsepeople());
+			ps.setString(6, r.getCompany());
+			ps.setString(7, r.getImg());
+			ps.setString(8, r.getInfo());
+			cnt = ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbClose();
+		}
+		return cnt;
 	}
 
 	void dbClose() {

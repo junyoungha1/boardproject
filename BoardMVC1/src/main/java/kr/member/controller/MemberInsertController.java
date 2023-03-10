@@ -21,7 +21,7 @@ public class MemberInsertController implements Controller {
 		}
 		String ctx = request.getContextPath();
 		int cnt = MemberDAO.getInstance()
-				.memberInsert(new Member(request.getParameter("id"), request.getParameter("pw1"),
+				.memberInsert(new Member(request.getParameter("id"), request.getParameter("pw"),
 						request.getParameter("email"), request.getParameter("tel"), request.getParameter("hobby"),
 						request.getParameter("job"), request.getParameter("age"), request.getParameter("info")));
 		if (cnt > 0) {

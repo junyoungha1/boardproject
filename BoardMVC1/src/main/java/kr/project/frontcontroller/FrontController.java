@@ -23,6 +23,7 @@ public class FrontController extends HttpServlet {
 		String ctx = request.getContextPath();
 		String key = url.substring(ctx.length());
 		HandlerMapping mapping = new HandlerMapping();
+		System.out.println(key);
 		Controller cont = mapping.getController(key);
 		String nextPage = cont.requestHandler(request, response);
 		String viewRes = ViewResolver.makeView(nextPage, key);
@@ -32,7 +33,6 @@ public class FrontController extends HttpServlet {
 				request.setAttribute("center", nextPage.split(":")[1]);
 				response.sendRedirect(ctx+"/board/main.jsp");
 			} else {
-				System.out.println(viewRes);
 				request.setAttribute("center", viewRes);
 				RequestDispatcher rd = request.getRequestDispatcher("/board/main.jsp");
 				rd.forward(request, response);

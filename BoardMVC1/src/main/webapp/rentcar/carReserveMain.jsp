@@ -30,7 +30,7 @@
 		</tr>
 		<tr>
 			<td>차량분류</td>
-			<td>${rc.category }</td>
+			<td id="category"></td>
 		</tr>
 		<tr>
 			<td>대여가격</td>
@@ -51,6 +51,9 @@
 		</tr>
 	</table>
 	<script type="text/javascript">
+	window.onload = ()=>{
+		setCategory();
+	}
 		var cnt = 0;
 		$("#selCnt").change(function() {
 			cnt = $(this).val();
@@ -65,6 +68,17 @@
 										+ cnt;
 							}
 						})
+						function setCategory(){
+			var category = ${rc.category}*1;
+			if(category==1){
+				$('#category').text('소형');
+			}else if(category==2){
+				$('#category').text('중형');
+			}else if(category==3){
+				$('#category').text('대형');
+			}
+		}
+						
 	</script>
 </body>
 </html>

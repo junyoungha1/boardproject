@@ -27,11 +27,11 @@
 						선택</h2></td>
 			</tr>
 			<tr>
-				<td rowspan="6" id="carList" width="700px"><img alt=""
+				<td rowspan="7" id="carList" width="700px"><img alt=""
 					src="${ctx }/img/${rc.img}" /></td>
 				<td>대여기간</td>
 				<td><select id="selDay" name="rentDay">
-						<option value="1">1일</option>
+						<option value="1" selected>1일</option>
 						<option value="2">2일</option>
 						<option value="3">3일</option>
 						<option value="4">4일</option>
@@ -42,40 +42,61 @@
 			</tr>
 			<tr>
 				<td>대여일</td>
-				<td><input type="date" name="rentDate" /></td>
+				<td><input type="date" id="rDay" name="rentDate" /></td>
 			</tr>
 			<tr>
 				<td>보험</td>
-				<td><input type="checkbox" name="ins" /></td>
+				<td><input type="checkbox" id="chkOption" name="ins" /></td>
 			</tr>
 			<tr>
 				<td>Wi-fi</td>
-				<td><input type="checkbox" name="wifi" /></td>
+				<td><input type="checkbox" id="chkOption" name="wifi" /></td>
 			</tr>
 			<tr>
 				<td>네비게이션</td>
-				<td><input type="checkbox" name="navi" /></td>
+				<td><input type="checkbox" id="chkOption" name="navi" /></td>
 			</tr>
 			<tr>
 				<td>베이비시트</td>
-				<td><input type="checkbox" name="seat" /></td>
+				<td><input type="checkbox" id="chkOption" name="seat" /></td>
 			</tr>
 			<tr>
-				<td colspan="3" align="center"><input type="button" id="formBtn"
-					value="차량 예약하기" /><input type="button" value="취소" /></td>
+				<td>가격</td>
+				<td id="priceRes">${cnt*1*rc.price}</td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"><input type="button"
+					id="formBtn" value="차량 예약하기" /><input type="button" value="취소" /></td>
 			</tr>
 		</table>
 	</form>
 	<script type="text/javascript">
-		var now = new Date();
-		$("input[name=rentDate]").change(function() {
-			var date = new Date($(this).val());
-			if (date <= now) {
-				alert("오늘 이후의 날짜를 선택하세요");
-				$(this).attr("value", null);
-				history.go(0);
-			}
-		})
+		window.onload = ()=>{
+			setRentDay();
+		}
+			var price = ${cnt*1*rc.price};
+			var total = document.getElementById('priceRes').innerText;
+				 
+			$('input:checkbox').change(function(){
+				total = document.getElementById('priceRes').innerText;
+			 if($(this).is(':checked')){
+				 total = total*1+1000*${cnt*1};
+			 }else{
+				 total = total*1-1000*${cnt*1};
+			 }
+			 $('#priceRes').text(total);
+			})
+			
+		$('#selDay').change(function(){
+			var dayPrice = total*$(this).val()
+			$('#priceRes').text(dayPrice);
+			})
+			
+		function setRentDay(){
+			var now = new Date().toISOString().substring(0,10);
+			console.log(now);
+			document.getElementById("rDay").setAttribute("min",now);
+		}
 		$("#formBtn").click(function() {
 			if (validDateCheck()) {
 				alert("예약 완료");

@@ -10,15 +10,14 @@ import kr.board.controller.Controller;
 import kr.rentcar.model.RentCar;
 import kr.rentcar.model.RentCarDAO;
 
-public class CarSelectOptionController implements Controller{
+public class CarAddController implements Controller {
 
 	@Override
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RentCar rc= RentCarDAO.getInstance().getOneCar(Integer.parseInt(request.getParameter("no")));
-		request.setAttribute("rc", rc);
-		request.setAttribute("cnt", Integer.parseInt(request.getParameter("cnt")));
-		return "carSelectOption";
+		RentCar r = new RentCar(request.getParameter("name"), Integer.parseInt(request.getParameter("category")), Integer.parseInt(request.getParameter("price")), Integer.parseInt(request.getParameter("usepeople")), request.getParameter("company"), request.getParameter("img"), request.getParameter("info"));
+		RentCarDAO.getInstance().addRentCar(r);
+		return "carMain";
 	}
 
 }

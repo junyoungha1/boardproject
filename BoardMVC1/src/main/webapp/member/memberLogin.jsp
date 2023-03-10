@@ -109,7 +109,7 @@
 	});
 	
 	$(".join").click(function(e){
-		 location.href = '${ctx}/memberInsert.do';
+		 location.href = 'memberInsert.jsp';
 	})
 	
 

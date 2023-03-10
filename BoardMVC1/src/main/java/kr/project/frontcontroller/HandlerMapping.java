@@ -18,6 +18,8 @@ import kr.member.controller.MemberLoginController;
 import kr.member.controller.MemberLogoutController;
 import kr.member.controller.MemberUpdateController;
 import kr.member.controller.ValidIdAjaxController;
+import kr.rentcar.controller.CarAddController;
+import kr.rentcar.controller.CarAddPageController;
 import kr.rentcar.controller.CarCategoryListController;
 import kr.rentcar.controller.CarDeleteController;
 import kr.rentcar.controller.CarListController;
@@ -26,6 +28,7 @@ import kr.rentcar.controller.CarReserveController;
 import kr.rentcar.controller.CarReserveListController;
 import kr.rentcar.controller.CarSelectController;
 import kr.rentcar.controller.CarSelectOptionController;
+import kr.rentcar.controller.UpLoadImgController;
 import kr.rentcar.controller.CarReserveMainController;
 
 public class HandlerMapping {
@@ -56,6 +59,9 @@ public class HandlerMapping {
 		mappings.put("/carSelectOption.do", new CarSelectOptionController());
 		mappings.put("/carReserveList.do", new CarReserveListController());
 		mappings.put("/carReserveMain.do", new CarReserveMainController());
+		mappings.put("/carAdd.do", new CarAddController());
+		mappings.put("/upLoadCarImg.do", new UpLoadImgController());
+		mappings.put("/carAddPage.do", new CarAddPageController());
 	}
 	public Controller getController(String key) {
 		return mappings.get(key);

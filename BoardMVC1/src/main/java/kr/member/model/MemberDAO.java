@@ -88,7 +88,7 @@ public class MemberDAO {
 	}
 
 	public boolean isValidId(String id) {
-		String SQL = "select pass from member where id=?";
+		String SQL = "select pw1 from member where id=?";
 		connect();
 
 		try {
@@ -188,7 +188,7 @@ public class MemberDAO {
 		int cnt = -1;
 		try {
 			ps = conn.prepareStatement(SQL);
-			ps.setString(1, m.getAge());
+			ps.setString(1, m.getPw());
 			ps.setString(2, m.getEmail());
 			ps.setString(3, m.getTel());
 			ps.setString(4, m.getHobby());
