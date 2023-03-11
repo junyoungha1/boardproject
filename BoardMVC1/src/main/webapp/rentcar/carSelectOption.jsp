@@ -78,7 +78,6 @@
 			var total = document.getElementById('priceRes').innerText;
 				 
 			$('input:checkbox').change(function(){
-				total = document.getElementById('priceRes').innerText;
 			 if($(this).is(':checked')){
 				 total = total*1+1000*${cnt*1};
 			 }else{
