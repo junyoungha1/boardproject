@@ -63,6 +63,7 @@
 			<tr>
 				<td>가격</td>
 				<td id="priceRes">${cnt*1*rc.price}</td>
+				<input type ="hidden" id="totalPrice" name="totalPrice" value="" />
 			</tr>
 			<tr>
 				<td colspan="3" align="center"><input type="button"
@@ -74,26 +75,20 @@
 		window.onload = ()=>{
 			setRentDay();
 		}
-			var price = ${cnt*1*rc.price};
-			var total = document.getElementById('priceRes').innerText;
 				 
-			$('input:checkbox').change(function(){
-			 if($(this).is(':checked')){
-				 total = total*1+1000*${cnt*1};
-			 }else{
-				 total = total*1-1000*${cnt*1};
-			 }
-			 $('#priceRes').text(total);
-			})
-			
-		$('#selDay').change(function(){
-			var dayPrice = total*$(this).val()
-			$('#priceRes').text(dayPrice);
-			})
+		$('input:checkbox, #selDay').change(function(){
+		    var dayPrice = ${cnt*1*rc.price} * $('#selDay').val();
+		    $('input:checkbox').each(function() {
+		        if ($(this).is(':checked')) {
+		            dayPrice += 1000 * ${cnt*1};
+		        }
+		    });
+		    $('#priceRes').text(dayPrice);
+		    $('#totalPrice').val($('#priceRes').text());
+		});
 			
 		function setRentDay(){
 			var now = new Date().toISOString().substring(0,10);
-			console.log(now);
 			document.getElementById("rDay").setAttribute("min",now);
 		}
 		$("#formBtn").click(function() {
