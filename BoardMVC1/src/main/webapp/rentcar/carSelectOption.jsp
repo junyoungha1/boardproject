@@ -63,7 +63,7 @@
 			<tr>
 				<td>가격</td>
 				<td id="priceRes">${cnt*1*rc.price}</td>
-				<input type ="hidden" id="totalPrice" name="totalPrice" value="" />
+				<input type="hidden" id="totalPrice" name="totalPrice" value="" />
 			</tr>
 			<tr>
 				<td colspan="3" align="center"><input type="button"

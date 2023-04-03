@@ -12,16 +12,17 @@
 <body>
 	<table>
 		<tr>
-			<td colspan="3" align="center"><h2 style="color: gray;">렌트카</h2></td>
+			<td colspan="3" align="center"><h2 style="color: gray;">렌트카
+				</h2></td>
 		</tr>
 		<c:forEach var="item" items="${carList}" begin="0"
 			end="${carList.size() }" step="1" varStatus="status">
 			<c:if test="${(status.index)%3 eq 0}">
 				<tr>
 			</c:if>
-			<td id="carList" ><img alt=""
+			<td id="carList"><img alt=""
 				id="${carList.get(status.index).no}"
-				src="${ctx }/img/${carList.get(status.index).img}"/><br /> <strong>${carList.get(status.index).name  }</strong></td>
+				src="${ctx }/img/${carList.get(status.index).img}" /><br /> <strong>${carList.get(status.index).name  }</strong></td>
 			<c:if test="${(status.index)%3 eq 2}">
 				</tr>
 			</c:if>
@@ -55,8 +56,10 @@
 			location.href = '${ctx}/carList.do';
 		})
 		$("img").click(function() {
+
+			alert("로그인 후 이용하세요");
 			var num = $(this).attr("id");
-			location.href = '${ctx}\/carReserveMain.do?no='+num;
+			location.href = '${ctx}\/carReserveMain.do?no=' + num;
 		})
 	</script>
 </body>
